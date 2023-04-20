@@ -1,0 +1,19 @@
+.birds {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bird {
+    width: 15rem;
+    flex-shrink: inherit;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    box-shadow: 2px 2px goldenrod;
+}
+
+.bird_img {
+    width:10rem;
+    height: 10rem;
+}
+
