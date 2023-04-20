@@ -1,4 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { Birds } from "../birds/Birds"
+import { BirdForm } from "../birds/BirdForm"
 
 export const UserViews = () => {
 	return (
@@ -11,7 +13,8 @@ export const UserViews = () => {
 				<Outlet />
 			</>
 		}>
-            {/* put Routes here... */}
+            <Route path="birds" element={ <Birds /> } />
+			<Route path="birds/addbird" element={ <BirdForm /> } />
 		</Route>
 	</Routes>
 )

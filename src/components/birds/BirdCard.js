@@ -1,0 +1,42 @@
+import { BirdEdit } from "./BirdEdit"
+
+export const Bird = ({ id, img, name, species, sex, identifiers, hatchDay, getAllBirds }) => {
+
+    const removeBird = () => {
+        return <button className="purchaseButton" data-toggle="button" data-placement="bottom" title="Remove the bird from your collection?"
+            onClick={() => {
+                fetch(`http://localhost:8088/birdsAndEggs/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(response => response.json())
+                    .then(getAllBirds()
+
+                    )
+            }}
+        >Remove</button>
+    }
+
+
+    return <>
+        <section className="bird">
+            <img className="bird_img" src={img} alt="Image of Bird" />
+            <div className="bird_info_body">
+                <h3 className="bird_name">{name}</h3>
+                <h4 className="bird_name">{species}</h4>
+                <ul>
+                    <li className="bird_info">Identifiers: {identifiers}</li>
+                    <li className="bird_info">Gender: {sex}</li>
+                    <li className="bird_info">Hatch Day: {hatchDay}</li>
+                </ul>
+            </div>
+            <footer>
+                <div className="btn-group" role="group" aria-label="Basic example">
+                    <>
+                        {BirdEdit()}
+                        {removeBird()}
+                    </>
+                </div>
+            </footer>
+        </section>
+    </>
+}
