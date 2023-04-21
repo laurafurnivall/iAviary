@@ -17,7 +17,7 @@ export const BirdEdit = () => {
         genderId: 0,
         identifiers: "",
         isEgg: false,
-        isLiving: true,
+        isDeceased: false,
         hatchDay: ""
     })
 
@@ -194,6 +194,20 @@ export const BirdEdit = () => {
             </fieldset>
             <fieldset>
                 <div className="birdFormGroup">
+                    <label htmlFor="birdDeceased">Is this bird Deceased?</label>
+                    <input type="checkbox"
+                        value={bird.isDeceased}
+                        onChange={
+                            (event) => {
+                                const copy = { ...bird }
+                                copy.isDeceased = event.target.checked
+                                updateBird(copy)
+                            }
+                        } />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="birdFormGroup">
                     <label htmlFor="birdGender">Hatch Day:</label>
                     <input type="date"
                         value={bird.hatchDay}
@@ -208,7 +222,7 @@ export const BirdEdit = () => {
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveBirdClick(clickEvent)}
-                className="btn btn-primary">
+                className="button">
                 Save Edits
             </button>
         </form>

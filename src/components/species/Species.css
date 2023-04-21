@@ -1,0 +1,19 @@
+.species {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.singularSpecies {
+    width: 15rem;
+    flex-shrink: inherit;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    box-shadow: 2px 2px goldenrod;
+}
+
+.species_img {
+    width:10rem;
+    height: 10rem;
+}
+

@@ -12,7 +12,7 @@ export const BirdForm = () => {
         genderId: 0,
         identifiers: "",
         isEgg: false,
-        isLiving: true,
+        isDeceased: false,
         hatchDay: ""
     })
     const navigate = useNavigate()
@@ -53,7 +53,7 @@ export const BirdForm = () => {
             genderId: newBird.genderId,
             identifiers: newBird.identifiers,
             isEgg: newBird.isEgg,
-            isLiving: true,
+            isDeceased: false,
             hatchDay: newBird.hatchDay
         }
 
