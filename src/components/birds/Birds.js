@@ -51,6 +51,7 @@ export const Birds = () => {
             sex={bird.gender.gender}
             identifiers={bird.identifiers}
             getAllBirds={getAllBirds}
+            birdObject={bird}
             hatchDay={bird.hatchDay} />
             )
         }
