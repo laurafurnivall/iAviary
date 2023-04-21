@@ -1,9 +1,11 @@
-import { BirdEdit } from "./BirdEdit"
+import { useNavigate } from "react-router-dom"
 
-export const Bird = ({ id, img, name, species, sex, identifiers, hatchDay, getAllBirds }) => {
+export const Bird = ({ birdObject, id, img, name, species, sex, identifiers, hatchDay, getAllBirds }) => {
+
+    const navigate = useNavigate()
 
     const removeBird = () => {
-        return <button className="purchaseButton" data-toggle="button" data-placement="bottom" title="Remove the bird from your collection?"
+        return <button className="button" data-toggle="button" data-placement="bottom" title="Remove the bird from your collection?"
             onClick={() => {
                 fetch(`http://localhost:8088/birdsAndEggs/${id}`, {
                     method: "DELETE"
@@ -32,7 +34,7 @@ export const Bird = ({ id, img, name, species, sex, identifiers, hatchDay, getAl
             <footer>
                 <div className="btn-group" role="group" aria-label="Basic example">
                     <>
-                        {BirdEdit()}
+                        <button className="button" onClick={() => navigate(`/birds/${birdObject.id}`)}>Edit</button>
                         {removeBird()}
                     </>
                 </div>
