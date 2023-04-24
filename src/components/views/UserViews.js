@@ -3,6 +3,7 @@ import { Birds } from "../birds/Birds"
 import { BirdForm } from "../birds/BirdForm"
 import { BirdEdit } from "../birds/BirdEdit"
 import { Species } from "../species/Species"
+import { Profile } from "../profile/Profile"
 
 export const UserViews = () => {
 	return (
@@ -19,6 +20,7 @@ export const UserViews = () => {
 			<Route path="birds/addbird" element={ <BirdForm /> } />
 			<Route path="birds/:birdId" element={ <BirdEdit /> } />
 			<Route path="species" element={ <Species /> } />
+			<Route path="profile" element={ <Profile /> } />
 		</Route>
 	</Routes>
 )

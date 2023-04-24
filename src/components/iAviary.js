@@ -5,8 +5,7 @@ import { ApplicationViews } from "./views/ApplicationViews"
 import "./iAviary.css"
 import { Register } from "./auth/Register"
 import { NavBar } from "./nav/NavBar"
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Aviary = () => {
 	return <Routes>
