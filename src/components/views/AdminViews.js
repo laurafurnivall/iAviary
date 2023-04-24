@@ -5,6 +5,7 @@ import { BirdEdit } from "../birds/BirdEdit"
 import { Species } from "../species/Species"
 import { AddSpecies } from "../species/SpeciesForm"
 import { EditSpecies } from "../species/SpeciesEdit"
+import { Profile } from "../profile/Profile"
 
 export const AdminViews = () => {
 	return (
@@ -23,6 +24,7 @@ export const AdminViews = () => {
 			<Route path="species" element={ <Species /> } />
 			<Route path="species/addspecies" element={ <AddSpecies /> } />
 			<Route path="species/:speciesId" element={ <EditSpecies /> } />
+			<Route path="profile" element={ <Profile /> } />
 		</Route>
 	</Routes>
 )
