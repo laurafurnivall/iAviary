@@ -30,28 +30,27 @@ export const Login = () => {
 
     return (
         <main className="container--login">
+            <img className="logo" alt="Logo Image for iAviary" src="../assets/iAviaryLogo.jpg"/>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>iAviary</h1>
-                    <h2>Please sign in</h2>
+                    <h3>Login</h3>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             value={email}
                             onChange={evt => set(evt.target.value)}
+                            placeholder="email address"
                             className="form-control"
-                            placeholder="Email address"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button className="button" type="submit">
                             Sign in
                         </button>
                     </fieldset>
                 </form>
             </section>
             <section className="link--register">
-                <div><Link to="/register">Not a member yet?</Link></div>
+                <div><Link className="linkToRegister" to="/register">Not a member yet?</Link></div>
             </section>
         </main>
     )
