@@ -58,9 +58,10 @@ export const Register = (props) => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for iAviary</h1>
+        <main className="registerContainer">
+            <form className="form--register" onSubmit={handleRegister}>
+            <img className="logoRegister" alt="Logo Image for iAviary" src="../assets/iAviaryLogo.jpg"/>
+                <h4 className="h4 mb-4 font-weight-normal">Register for iAviary</h4>
                 <fieldset>
                     <label htmlFor="name"> Name </label>
                     <input onChange={updateUser}
@@ -87,22 +88,22 @@ export const Register = (props) => {
                 </fieldset>
                 <fieldset>
                     <label htmlFor="aboutInfo"> About </label>
-                    <input onChange={updateUser}
+                    <textarea onChange={updateUser}
                         type="text" id="aboutInfo" className="form-control"
                         placeholder="Tell us about yourself!" />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="interests"> Interests </label>
-                    <input onChange={updateUser}
+                    <textarea onChange={updateUser}
                         type="text" id="interests" className="form-control"
                         placeholder="Give us three random facts!" />
                 </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
+                <fieldset className="RegisterButton">
+                    <button className="button" type="submit" onClick={handleRegister}> Register </button>
                 </fieldset>
             </form>
-            <section className="link--login">
-                <div><Link to="/login">Wait! I already have an account!</Link></div>
+            <section>
+                <div><Link className="linkToRegister" to="/login">Wait! I already have an account!</Link></div>
             </section>
         </main>
     )

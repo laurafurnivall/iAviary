@@ -27,7 +27,8 @@
 }
 
 .linkToRegister:hover {
-    color: purple
+  color: purple;
+  text-shadow: 1px 1px 2px #e48e79;
 }
 
 .link--register {
@@ -38,7 +39,7 @@
 .button {
     margin: 5px;
   background: linear-gradient(to bottom right, #bc3a72, #e48e79);
-  border: 0;
+  border: 0 !important;
   border-radius: 12px;
   color: whitesmoke;
   cursor: pointer;
@@ -62,4 +63,36 @@
 
 .button:not([disabled]):hover {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+
+.registerContainer {
+  display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.logoRegister {
+  width: 300px;
+  margin-top:5%;
+}
+
+.h4 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+    color: #585858;
+}
+
+.link--register {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.RegisterButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

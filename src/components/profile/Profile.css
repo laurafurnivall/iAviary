@@ -1,0 +1,76 @@
+.userProfile {
+    width: 500px;
+    flex-shrink: inherit;
+    margin: 20px;
+    padding: 15px 25px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px #bc3a72;
+    border-radius: 5px;
+}
+
+.editProfileButton {
+    margin: 5px 20px;
+    background: linear-gradient(to bottom right, #bc3a72, #e48e79);
+    border-radius: 12px;
+    border: none !important;
+    color: whitesmoke;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 2.0;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.editProfileButton:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.editProfileButton:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+
+  .ModalFormLabels {
+    font-weight: bold;
+    padding-right: 10px;
+  }
+
+  .profileFormControl{
+   width: 350px;
+   float: right;
+   margin-bottom: 5px;
+  }
+
+  .closeProfileButton {
+    margin: 5px 20px;
+    background: #585858 !important;
+    border-radius: 12px;
+    border: none !important;
+    color: whitesmoke;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 2.0;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.closeProfileButton:hover {
+    background-color: gray !important;
+}
+
+  

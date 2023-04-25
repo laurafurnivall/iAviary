@@ -10,10 +10,10 @@
     justify-content: left;
 }
 
-.navbar__item {
+/* .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
-}
+} */
 
 .navbar__logout {
     margin-left: auto;
@@ -35,4 +35,10 @@
 
 .navbar__link:hover {
     color: purple;
+    text-shadow: 1px 1px 2px #e48e79;
+}
+
+.right {
+    float: right;
+    flex-basis: 10%;
 }

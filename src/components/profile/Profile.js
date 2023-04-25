@@ -54,10 +54,10 @@ export const Profile = () => {
         <section className="userProfile">
             <h4 className="userName">{editProfile.name}</h4>
             <h5 className="userAviary">{editProfile.aviaryName}</h5>
-            <div className="userFacts">About: {editProfile.aboutInfo}</div>
-            <div className="userFacts">Interests: {editProfile.interests}</div>
-            <div className="userFacts">Address: {editProfile.address}</div>
-            <div className="userFacts">Email: {editProfile.email}</div>
+            <div className="userFacts"><b>About:</b> {editProfile.aboutInfo}</div>
+            <div className="userFacts"><b>Interests:</b> {editProfile.interests}</div>
+            <div className="userFacts"><b>Address:</b> {editProfile.address}</div>
+            <div className="userFacts"><b>Email:</b> {editProfile.email}</div>
         </section>
 
         <Button className="editProfileButton" variant="success" onClick={handleOpen}>
@@ -68,7 +68,7 @@ export const Profile = () => {
             <Modal.Title>Update Profile</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form>
+            <form className="MainFormBody">
                 <fieldset>
                     <div className="ModalForm">
                     <label className="ModalFormLabels">Name:</label>
@@ -171,7 +171,7 @@ export const Profile = () => {
             <Button className="closeProfileButton" variant="danger" onClick={handleClose}>
               Close
             </Button>
-            <Button className="saveProfileButton" variant="dark" onClick={handleSaveProfile}>
+            <Button className="editProfileButton" variant="dark" onClick={handleSaveProfile}>
               Save Changes
             </Button>
           </Modal.Footer>

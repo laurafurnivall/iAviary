@@ -16,10 +16,10 @@ export const NavBar = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/species">Species Database</Link>
             </li>
-            <li className="navbar__item active">
+            <li className="navbar__item active right">
                 <Link className="navbar__link" to="/profile">Profile</Link>
             </li>
-            <li className="navbar__item active">
+            <li className="navbar__item active right">
                 <Link className="navbar__link" to="" onClick={() => {
                     localStorage.removeItem("aviary_user")
                     navigate("/", { replace: true })
