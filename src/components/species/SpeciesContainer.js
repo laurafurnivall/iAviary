@@ -1,9 +1,18 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { SpeciesSearch } from "./SpeciesSearch";
+import { Species } from "./Species";
+import { Modal, Button } from 'react-bootstrap'
 
-export const AddSpecies = () => {
+export const SpeciesContainer = () => {
+    const [searchTerms, setSearchTerms] = useState("")
 
-    const navigate = useNavigate()    
+    const [isShow, invokeModal] = useState(false)
+    const handleClose = () => invokeModal(false)
+    const handleOpen = () => invokeModal(true)
+
+    const localAviaryUser = localStorage.getItem("aviary_user")
+    const aviaryUserObject = JSON.parse(localAviaryUser)
+
     const [newSpecies, addNewSpecies] = useState({
         commonName: "",
         scientificName: "",
@@ -27,17 +36,34 @@ export const AddSpecies = () => {
         })
         .then(response => response.json())
         .then(() => {
-            navigate("/species")
+            handleClose()
         })
 
     }
 
-    return (
-        <form className="addBirdForm">
-            <h2 className="addBirdFormTitle">Add a new Species into the Database</h2>
+    const reload = () => {window.location.reload()}
+
+    return <>
+        <h2>Species Database</h2>
+        <div className="addSpeciesButtonAndSearch">
+            {
+                aviaryUserObject.admin
+                    ? <Button className="button addbutton" variant="success" onClick={handleOpen}>Add Species</Button>
+                    : ""
+            }
+            <SpeciesSearch setterFunction={setSearchTerms} />
+        </div>
+        <Species searchTermState={searchTerms} />
+
+        <Modal show={isShow} onHide={handleClose} onExit={reload}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add a New Species</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          <form className="addBirdForm">
             <fieldset>
                 <div className="birdFormGroup">
-                    <label htmlFor="birdName">Common Name:</label>
+                    <label className="ModalFormLabels" htmlFor="birdName">Common Name:</label>
                     <input
                         type="text"
                         className="birdFormControl"
@@ -54,7 +80,7 @@ export const AddSpecies = () => {
             </fieldset>
             <fieldset>
                 <div className="birdFormGroup">
-                    <label htmlFor="birdName">Scietific Name:</label>
+                    <label className="ModalFormLabels" htmlFor="birdName">Scietific Name:</label>
                     <input
                         type="text"
                         className="birdFormControl"
@@ -71,10 +97,10 @@ export const AddSpecies = () => {
             </fieldset>
             <fieldset>
                 <div className="birdFormGroup">
-                    <label htmlFor="birdImg">Image:</label>
+                    <label className="ModalFormLabels" htmlFor="birdImg">Image:</label>
                     <input
                         type="text"
-                        className="birdImage"
+                        className="birdFormControl"
                         value={newSpecies.img}
                         placeholder="Image URL"
                         onChange={
@@ -88,8 +114,9 @@ export const AddSpecies = () => {
             </fieldset>
             <fieldset>
                 <div className="birdFormGroup">
-                    <label htmlFor="birdIdentifiers">Description:</label>
-                    <input
+                    <label className="ModalFormLabels" htmlFor="birdIdentifiers">Description:</label>
+                    <textarea
+                        maxLength={23}
                         type="text"
                         className="birdFormControl"
                         placeholder="Brief species description..."
@@ -103,11 +130,16 @@ export const AddSpecies = () => {
                         } />
                 </div>
             </fieldset>
-            <button
-                onClick={(clickEvent) => handleAddSpeciesClick(clickEvent)}
-                className="btn btn-primary">
-                Add Species
-            </button>
         </form>
-    )
+          </Modal.Body>
+          <Modal.Footer>
+            <Button className="closeProfileButton" variant="danger" onClick={handleClose}>
+              Close
+            </Button>
+            <Button className="editProfileButton" variant="dark" onClick={handleAddSpeciesClick}>
+              Add Species
+            </Button>
+          </Modal.Footer>
+        </Modal>    
+    </>
 }

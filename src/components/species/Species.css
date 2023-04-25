@@ -1,19 +1,93 @@
 .species {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .singularSpecies {
-    width: 15rem;
+    width: 40rem;
+    height: 14.5rem;
     flex-shrink: inherit;
-    margin: 10px;
+    margin: 10px 15px 10px 15px;
     padding: 5px;
     border: 1px solid black;
-    box-shadow: 2px 2px goldenrod;
+    box-shadow: 2px 2px 5px #bc3a72;
+    border-radius: 5px;
+    background-color: rgb(244, 241, 229);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px
 }
 
 .species_img {
-    width:10rem;
-    height: 10rem;
+    width: 13rem;
+    height: 13rem;
+    float: left;
+    margin: 5px 10px 5px 5px;
+    border: 0.5px solid black;
+    border-radius: 5px;
 }
 
+h2 {
+    color: #404040;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.btn-group {
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+.addbutton {
+    margin-left: 20px;
+}
+
+.search {
+    margin: 8px 0px 0px 20px;
+    width: 300px;
+}
+
+.addSpeciesButtonAndSearch {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ModalFormLabels {
+    font-weight: bold;
+    padding-right: 10px;
+  }
+
+  .birdFormControl{
+   width: 330px;
+   float: right;
+   margin-bottom: 5px;
+  }
+
+  .closeProfileButton {
+    margin: 5px 20px;
+    background: #585858 !important;
+    border-radius: 12px;
+    border: none !important;
+    color: whitesmoke;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 2.0;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.closeProfileButton:hover {
+    background-color: gray !important;
+}

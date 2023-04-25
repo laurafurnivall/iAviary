@@ -23,8 +23,8 @@ export const Bird = ({ birdObject, id, img, name, species, sex, identifiers, hat
         <section className="bird">
             <img className="bird_img" src={img} alt="Image of Bird" />
             <div className="bird_info_body">
-                <h3 className="bird_name">{name}</h3>
-                <h4 className="bird_name">{species}</h4>
+                <h5 className="bird_name">{name}</h5>
+                <h6 className="bird_name">{species}</h6>
                 <ul>
                     <li className="bird_info">Identifiers: {identifiers}</li>
                     <li className="bird_info">Gender: {sex}</li>
