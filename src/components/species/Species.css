@@ -91,3 +91,19 @@ h2 {
 .closeProfileButton:hover {
     background-color: gray !important;
 }
+
+.speciesFormGroup {
+    width: 550px;
+    padding: 5px
+}
+
+.speciesFormControl {
+    width: 400px;
+    margin-left: 10px;
+    float: right;
+}
+
+.modal-50w {
+    max-width: 550px !important;
+
+}

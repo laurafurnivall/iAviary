@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export const Bird = ({ birdObject, id, img, name, species, sex, identifiers, hatchDay, getAllBirds }) => {
+export const Bird = ({ birdObject, id, img, name, species, getAllBirds }) => {
 
     const navigate = useNavigate()
 
@@ -25,16 +25,11 @@ export const Bird = ({ birdObject, id, img, name, species, sex, identifiers, hat
             <div className="bird_info_body">
                 <h5 className="bird_name">{name}</h5>
                 <h6 className="bird_name">{species}</h6>
-                <ul>
-                    <li className="bird_info">Identifiers: {identifiers}</li>
-                    <li className="bird_info">Gender: {sex}</li>
-                    <li className="bird_info">Hatch Day: {hatchDay}</li>
-                </ul>
             </div>
             <footer>
                 <div className="btn-group" role="group" aria-label="Basic example">
                     <>
-                        <button className="button" onClick={() => navigate(`/birds/${birdObject.id}`)}>Edit</button>
+                        <button className="button" onClick={() => navigate(`/birds/${birdObject.id}`)}>Info</button>
                         {removeBird()}
                     </>
                 </div>

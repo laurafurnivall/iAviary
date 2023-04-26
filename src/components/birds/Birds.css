@@ -5,8 +5,11 @@
 }
 
 .bird {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 15rem;
-    height: 30rem;
+    height: 20rem;
     margin: 10px;
     padding: 5px;
     border: 1px solid black;
@@ -16,17 +19,43 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.bird_img {
-    display: flex;
+.birdInfo {
+    font-family: 'Poppins', sans-serif;
+    color: #585858;
+    margin-top: 20px;
+    margin-left: 40px;
+    display:flex;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 13rem;
-    height: 13rem;
+}
+
+.bird_info_body {
+    margin-top: 20px;
+    padding-left:10px;
+}
+
+.bird_info {
+    font-size: large;
+}
+
+.bird_img2 {
+    width: 15rem;
+    height: 15rem;
     margin: 5px 10px 5px 5px;
-    width:10rem;
-    height: 10rem;
     border: 0.5px solid black;
     border-radius: 5px
+}
+.bird_img {
+    width: 10rem;
+    height: 10rem;
+    margin: 5px 10px 5px 5px;
+    border: 0.5px solid black;
+    border-radius: 5px
+}
+
+.editBirdForm {
+    font-family: 'Poppins', sans-serif;
+    color: #585858;
+    margin-left: 40px;
 }
 
 .btn-group {
@@ -37,3 +66,80 @@
     overflow: auto;
 }
 
+.addBirdForm {
+    width: 500px;
+}
+
+.birdFormGroup {
+    width: 525px;
+    padding: 5px
+}
+
+.birdFormControl {
+    width: 400px !important;
+    margin-left: 5px;
+    float: right;
+}
+
+.bird_infolist {
+    font-size: small;
+}
+
+.modal-40w {
+    max-width: 600px !important;
+
+}
+
+.addBirdButtonAndSearch {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ModalFormLabels {
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.closeBirdButton {
+    margin: 5px 20px;
+    background: #585858 !important;
+    border-radius: 12px;
+    border: none !important;
+    color: whitesmoke;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 2.0;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.closeBirdButton:hover {
+    background-color: gray !important;
+}
+
+.addbirdRadio {
+    display: inline;
+    padding-right: 10px;
+    margin-left: 45px;
+}
+
+.eggcheck {
+    margin-left: 15px;
+}
+
+.nav-tabs .nav-link {
+    color:#585858
+}
+
+.nav-tabs .nav-link:hover{
+    color: purple;
+    text-shadow: 1px 1px 2px #e48e79;
+}
