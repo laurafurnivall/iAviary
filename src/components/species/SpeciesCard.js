@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import Image from 'react-bootstrap/Image'
 
 export const SpeciesCard = ({ speciesObject, id, img, commonName, scientificName, description, getAllSpecies }) => {
 
@@ -23,7 +24,7 @@ export const SpeciesCard = ({ speciesObject, id, img, commonName, scientificName
 
     return <>
         <section className="singularSpecies">
-            <img className="species_img" src={img} alt="Image of Species" />
+            <Image className="species_img" fluid={false} src={img} alt="Image of Species" />
             <div className="species_info_body">
                 <h5 className="species_name">{commonName}</h5>
                 <h6 className="species_name">{scientificName}</h6>

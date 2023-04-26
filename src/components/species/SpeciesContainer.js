@@ -41,8 +41,6 @@ export const SpeciesContainer = () => {
 
     }
 
-    const reload = () => {window.location.reload()}
-
     return <>
         <h2>Species Database</h2>
         <div className="addSpeciesButtonAndSearch">
@@ -55,7 +53,7 @@ export const SpeciesContainer = () => {
         </div>
         <Species searchTermState={searchTerms} />
 
-        <Modal show={isShow} onHide={handleClose} onExit={reload}>
+        <Modal show={isShow} onHide={handleClose} dialogClassName="modal-50w">
           <Modal.Header closeButton>
             <Modal.Title>Add a New Species</Modal.Title>
           </Modal.Header>
@@ -80,7 +78,7 @@ export const SpeciesContainer = () => {
             </fieldset>
             <fieldset>
                 <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdName">Scietific Name:</label>
+                    <label className="ModalFormLabels" htmlFor="birdName">Scientific Name:</label>
                     <input
                         type="text"
                         className="birdFormControl"

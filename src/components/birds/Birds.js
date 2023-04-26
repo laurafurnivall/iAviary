@@ -3,7 +3,7 @@ import { Bird } from "./BirdCard"
 import "./Birds.css"
 import { useNavigate } from "react-router-dom"
 
-export const Birds = () => {
+export const Birds = ({ searchTermState }) => {
 
     const [birds, setBirds] = useState([])
     const [filteredBirds, setFilteredBirds] = useState([])
@@ -30,6 +30,15 @@ export const Birds = () => {
 
     useEffect(
         () =>{
+        const searchedBirds = birds.filter(bird => {
+            return bird.name.toLowerCase().startsWith(searchTermState.toLowerCase())
+        })
+        setFilteredBirds(searchedBirds)
+        },
+        [searchTermState]
+    )
+    useEffect(
+        () =>{
         const myBirds = birds.filter(bird => bird.userId === aviaryUserObject.id)
         setFilteredBirds(myBirds)
         },
@@ -37,10 +46,6 @@ export const Birds = () => {
     )
 
     return <>
-    <h2>List of Birds</h2>
-    <>
-    <button className="buttons" onClick={() => { navigate("addbird")}}>Add Bird or Egg</button>
-    </>
     <article className="birds">
         {
             filteredBirds.map((bird) => <Bird key={bird.id}

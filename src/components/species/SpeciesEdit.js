@@ -48,7 +48,7 @@ export const EditSpecies = () => {
             <h2 className="editSpeciesFormTitle">Edit Species Information</h2>
             <fieldset>
                 <div className="speciesFormGroup">
-                    <label htmlFor="speciesCommonName">Common Name:</label>
+                    <label htmlFor="speciesCommonName"><b>Common Name:</b></label>
                     <input
                         type="text"
                         className="speciesFormControl"
@@ -64,7 +64,7 @@ export const EditSpecies = () => {
             </fieldset>
             <fieldset>
                 <div className="speciesFormGroup">
-                    <label htmlFor="speciesScientificName">Scientific Name:</label>
+                    <label htmlFor="speciesScientificName"><b>Scientific Name:</b></label>
                     <input
                         type="text"
                         className="speciesFormControl"
@@ -80,7 +80,7 @@ export const EditSpecies = () => {
             </fieldset>
             <fieldset>
                 <div className="speciesFormGroup">
-                    <label htmlFor="speciesImg">Image URL:</label>
+                    <label htmlFor="speciesImg"><b>Image URL:</b></label>
                     <input
                         type="text"
                         className="speciesFormControl"
@@ -96,7 +96,7 @@ export const EditSpecies = () => {
             </fieldset>
             <fieldset>
                 <div className="speciesFormGroup">
-                    <label htmlFor="speciesDescription">Description:</label>
+                    <label htmlFor="speciesDescription"><b>Description:</b></label>
                     <textarea
                         type="text"
                         className="speciesFormControl"
@@ -112,7 +112,7 @@ export const EditSpecies = () => {
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveSpeciesClick(clickEvent)}
-                className="button">
+                className="button" id="buttonSpecies">
                 Save Edits
             </button>
         </form>

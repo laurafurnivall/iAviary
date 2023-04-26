@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import "./Birds.css"
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export const BirdForm = () => {
     const [species, setSpecies] = useState([])
@@ -138,7 +140,7 @@ export const BirdForm = () => {
                                 return <div key={birdGender.id + "gender"}>
                                     <input
                                         type="radio"
-                                        className="birdFormControl"
+                                        className="birdFormControl addbirdRadio"
                                         name="birdGenderButtons"
                                         key={birdGender.gender + birdGender.id}
                                         value={birdGender.id}

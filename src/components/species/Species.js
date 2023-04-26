@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import "./Species.css"
 import { SpeciesCard } from "./SpeciesCard"
-import { useNavigate } from "react-router-dom"
+
 
 export const Species = ({ searchTermState }) => {
 
