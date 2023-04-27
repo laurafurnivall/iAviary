@@ -9,7 +9,7 @@ export const BirdInfo = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/birdsAndEggs/?_expand=species&_expand=gender&id=${birdId}`)
+            fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender&id=${birdId}`)
                 .then(response => response.json())
                 .then((birdData) => {
                     const singleBird = birdData[0]

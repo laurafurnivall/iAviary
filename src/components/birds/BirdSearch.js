@@ -1,11 +1,11 @@
 import "./Birds.css"
 
-export const BirdSearch = ({ setterFunction }) => {
+export const BirdSearch = ({ setterFunctionTwo }) => {
     return (
         <div>
             <input className="search" onChange={
                 (changeEvent) => {
-                    setterFunction(changeEvent.target.value)
+                    setterFunctionTwo(changeEvent.target.value)
                 }
             }
             type="text" placeholder="Search for a specific bird..."/>
