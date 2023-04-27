@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import "./Birds.css"
+import { BirdInfo } from "./BirdInfo"
 
 
 export const BirdEdit = () => {
@@ -48,7 +49,7 @@ export const BirdEdit = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/birdsAndEggs/?_expand=species&_expand=gender&id=${birdId}`)
+            fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender&id=${birdId}`)
                 .then(response => response.json())
                 .then((birdData) => {
                     const singleBird = birdData[0]
@@ -61,7 +62,7 @@ export const BirdEdit = () => {
     const handleSaveBirdClick = (event) => {
         event.preventDefault()
 
-        return fetch(`http://localhost:8088/birdsAndEggs/${bird.id}`, {
+        return fetch(`http://localhost:8088/birds/${bird.id}`, {
             method: "PUT",
             headers: {
                 "Content-type": "application/json"
@@ -71,7 +72,7 @@ export const BirdEdit = () => {
         )
             .then(response => response.json())
             .then(() => {
-
+                navigate("/birds")
             })
     }
 

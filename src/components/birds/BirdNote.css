@@ -1,0 +1,22 @@
+.birdnotesContainer {
+    display: flex;
+    flex: wrap
+}
+
+.notesContent {
+    width: 50%;
+    margin: 20px;
+    border-right: 1px solid lightgray;
+}
+
+.addNotesContent {
+    width: 50%;
+     margin: 20px;
+     
+}
+
+.birdNoteCard {
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+    margin: 5px
+}

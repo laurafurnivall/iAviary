@@ -107,3 +107,15 @@ h2 {
     max-width: 550px !important;
 
 }
+
+.allSpeciesButton {
+    margin-left: 20px;
+}
+
+.editSpeciesForm {
+    margin-left: 20px;
+}
+
+.editSpeciesFormTitle {
+    margin-left: 20px;
+}

@@ -43,9 +43,9 @@ export const EditSpecies = () => {
         })
     }
 
-    return (
+    return (<>
+        <h2 className="editSpeciesFormTitle">Edit Species Information</h2>
         <form className="editSpeciesForm">
-            <h2 className="editSpeciesFormTitle">Edit Species Information</h2>
             <fieldset>
                 <div className="speciesFormGroup">
                     <label htmlFor="speciesCommonName"><b>Common Name:</b></label>
@@ -116,5 +116,6 @@ export const EditSpecies = () => {
                 Save Edits
             </button>
         </form>
+        </>
     )
 }
