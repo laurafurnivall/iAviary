@@ -66,10 +66,13 @@ export const Species = ({ searchTermState }) => {
 
     useEffect(
         () => {
+            if (searchTermState === "") {
+                getAllSpecies()
+            } else {
             const searchedSpecies = filteredSpecies.filter(oneSpecies => {
                 return oneSpecies.commonName.toLowerCase().startsWith(searchTermState.toLowerCase())
             })
-            setFilteredSpecies(searchedSpecies)
+            setFilteredSpecies(searchedSpecies)}
         },
         [searchTermState]
     )

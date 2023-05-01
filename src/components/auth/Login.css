@@ -40,14 +40,14 @@
     margin: 5px;
   background: linear-gradient(to bottom right, #bc3a72, #e48e79);
   border: 0 !important;
-  border-radius: 12px;
+  border-radius: 5px;
   color: whitesmoke;
   cursor: pointer;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 2.0;
   outline: transparent;
-  padding: 0 1rem;
+  padding: 0 .5rem;
   text-align: center;
   text-decoration: none;
   transition: box-shadow .2s ease-in-out;

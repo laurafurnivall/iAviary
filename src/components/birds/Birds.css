@@ -9,7 +9,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 15rem;
-    height: 20rem;
+    height: 18rem;
     margin: 10px;
     padding: 5px;
     border: 1px solid black;
@@ -23,9 +23,9 @@
     font-family: 'Poppins', sans-serif;
     color: #585858;
     margin-top: 20px;
-    margin-left: 40px;
     display:flex;
     flex-wrap: wrap;
+    width: 50%;
 }
 
 .bird_info_body {
@@ -34,7 +34,7 @@
 }
 
 .bird_info {
-    font-size: large;
+    font-size: medium;
 }
 
 .bird_img2 {
@@ -55,7 +55,10 @@
 .editBirdForm {
     font-family: 'Poppins', sans-serif;
     color: #585858;
-    margin-left: 40px;
+    width: 50%;
+    margin-top: 20px;
+    border-left:1px solid #585858;
+    padding-left: 20px;
 }
 
 .btn-group {
@@ -136,10 +139,63 @@
 }
 
 .nav-tabs .nav-link {
-    color:#585858
+    color:#585858;
 }
 
 .nav-tabs .nav-link:hover{
     color: purple;
     text-shadow: 1px 1px 2px #e48e79;
+}
+
+.mb-3 {
+    background: rgb(235, 235, 235)
+}
+
+.button2 {
+    background: none;
+    font-size: small;
+    border: none;
+    text-decoration: underline
+    
+}
+.button2:hover {
+    border: none;
+    background: none;
+    text-shadow: 1px 1px 1px #bc3a72;
+    text-decoration: none;
+}
+
+.button {
+    margin-top: 10px;
+  background: linear-gradient(to bottom right, #bc3a72, #e48e79);
+  border: 0 !important;
+  border-radius: 5px;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px !important;
+  line-height: 2.0;
+  outline: transparent;
+  padding: 0 .5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.birdInfoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
