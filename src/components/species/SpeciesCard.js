@@ -9,7 +9,7 @@ export const SpeciesCard = ({ speciesObject, id, img, commonName, scientificName
     const navigate = useNavigate()
 
     const removeSpecies = () => {
-        return <button className="button" data-toggle="button" data-placement="bottom" title="Remove this species from the database?"
+        return <button className="button2" data-toggle="button" data-placement="bottom" title="Remove this species from the database?"
             onClick={() => {
                 fetch(`http://localhost:8088/species/${id}`, {
                     method: "DELETE"
@@ -34,7 +34,7 @@ export const SpeciesCard = ({ speciesObject, id, img, commonName, scientificName
                 <> {
                     aviaryUserObject.admin
                         ? <> {removeSpecies()}
-                            <button className="button" onClick={() => navigate(`/species/${speciesObject.id}`)}>Edit</button></>
+                            <button className="button2" onClick={() => navigate(`/species/${speciesObject.id}`)}>Edit</button></>
                         : ""
                 }
                 </>

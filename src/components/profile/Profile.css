@@ -11,12 +11,12 @@
 .editProfileButton {
     margin: 5px 20px;
     background: linear-gradient(to bottom right, #bc3a72, #e48e79);
-    border-radius: 12px;
+    border-radius: 5px !important;
     border: none !important;
     color: whitesmoke;
     cursor: pointer;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px !important;
     line-height: 2.0;
     outline: transparent;
     padding: 0 1rem;
@@ -51,12 +51,12 @@
   .closeProfileButton {
     margin: 5px 20px;
     background: #585858 !important;
-    border-radius: 12px;
+    border-radius: 5px !important;
     border: none !important;
     color: whitesmoke;
     cursor: pointer;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px !important;
     line-height: 2.0;
     outline: transparent;
     padding: 0 1rem;

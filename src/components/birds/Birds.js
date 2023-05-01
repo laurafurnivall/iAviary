@@ -27,20 +27,30 @@ export const Birds = ({ searchTermState }) => {
         []
     )
 
+    const getMyBirds = () => {
+        fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender`)
+        .then(response => response.json())
+        .then((birdArray) => {
+            const myBirds = birdArray.filter(bird => bird.userId === aviaryUserObject.id)
+            setFilteredBirds(myBirds)
+        })
+    }
     useEffect(
         () =>{
-        const myBirds = birds.filter(bird => bird.userId === aviaryUserObject.id)
-        setFilteredBirds(myBirds)
+        getMyBirds()
         },
         [birds]
     )
 
     useEffect(
-        () =>{
+        () =>{ 
+        if (searchTermState === "") {
+            getMyBirds()
+        } else {
         const searchedBirds = filteredBirds.filter(oneBird => {
             return oneBird.name.toLowerCase().startsWith(searchTermState.toLowerCase()) 
         })
-        setFilteredBirds(searchedBirds)
+        setFilteredBirds(searchedBirds)}
         },
         [searchTermState]
     )
@@ -121,8 +131,8 @@ export const Birds = ({ searchTermState }) => {
             id={bird.id}
             img={bird.img}
             name={bird.name}
-            species={bird.species.commonName}
-            sex={bird.gender.gender}
+            species={bird?.species?.commonName}
+            sex={bird?.gender?.gender}
             identifiers={bird.identifiers}
             getAllBirds={getAllBirds}
             birdObject={bird}
@@ -188,7 +198,7 @@ export const Birds = ({ searchTermState }) => {
                             species.map(
                                 (birdSpecies) => {
                                     return (
-                                        <option key={birdSpecies.id} value={birdSpecies.id}>{birdSpecies.commonName}, {birdSpecies.scientificName}</option>
+                                        <option key={birdSpecies.id} value={birdSpecies.id}>{birdSpecies.commonName}</option>
                                     )
                                 }
                             )

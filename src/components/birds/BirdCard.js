@@ -5,9 +5,9 @@ export const Bird = ({ birdObject, id, img, name, species, getAllBirds }) => {
     const navigate = useNavigate()
 
     const removeBird = () => {
-        return <button className="button" data-toggle="button" data-placement="bottom" title="Remove the bird from your collection?"
+        return <button className="button2" data-toggle="button" data-placement="bottom" title="Remove the bird from your collection?"
             onClick={() => {
-                fetch(`http://localhost:8088/birdsAndEggs/${id}`, {
+                fetch(`http://localhost:8088/birds/${id}`, {
                     method: "DELETE"
                 })
                     .then(response => response.json())
@@ -29,7 +29,7 @@ export const Bird = ({ birdObject, id, img, name, species, getAllBirds }) => {
             <footer>
                 <div className="btn-group" role="group" aria-label="Basic example">
                     <>
-                        <button className="button" onClick={() => navigate(`/birds/${birdObject.id}`)}>Info</button>
+                        <button className="button2" onClick={() => navigate(`/birds/${birdObject.id}`)}>Info</button>
                         {removeBird()}
                     </>
                 </div>

@@ -6,6 +6,7 @@ import "./iAviary.css"
 import { Register } from "./auth/Register"
 import { NavBar } from "./nav/NavBar"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { LandingPage } from "./landingpage/LandingPage"
 
 export const Aviary = () => {
 	return <Routes>
@@ -17,6 +18,7 @@ export const Aviary = () => {
 				<>
 					<NavBar/>
 					<ApplicationViews />
+					
 				</>
 			</Authorized>
 

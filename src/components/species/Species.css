@@ -6,7 +6,7 @@
 
 .singularSpecies {
     width: 40rem;
-    height: 14.5rem;
+    height: 13.5rem;
     flex-shrink: inherit;
     margin: 10px 15px 10px 15px;
     padding: 5px;
@@ -19,8 +19,8 @@
 }
 
 .species_img {
-    width: 13rem;
-    height: 13rem;
+    width: 12rem;
+    height: 12rem;
     float: left;
     margin: 5px 10px 5px 5px;
     border: 0.5px solid black;
