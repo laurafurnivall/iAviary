@@ -5,10 +5,15 @@ import "./BirdWeight.css"
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/esm/Button";
 import { Modal } from "react-bootstrap";
+import { BirdGraph } from "./Graph";
+import { CategoryScale } from "chart.js";
+import Chart from "chart.js/auto";
+
+
 
 //Export Function BirdWeights
 export const BirdWeights = () => {
-
+    
     const { birdId } = useParams() //observe for specific birdId
     const [weights, setWeights] = useState([]) //initial state
     const [filteredWeights, setFilteredWeights] = useState([])
@@ -53,7 +58,7 @@ export const BirdWeights = () => {
         },
         [weights]
     )
-
+    
     const handleAddWeightClick = (event) => {
         event.preventDefault()
 
@@ -132,6 +137,7 @@ export const BirdWeights = () => {
                             }
                         } />
                 </Form>
+               
                 <Button className="button"
                     onClick={(clickEvent) => handleAddWeightClick(clickEvent)}>
                     Add Weight</Button>
@@ -140,8 +146,8 @@ export const BirdWeights = () => {
                     <Modal.Header closeButton>
                         <Modal.Title>Weight Trends</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
-                        Weigh Graph goes here!
+                    <Modal.Body> 
+                    <BirdGraph />
                     </Modal.Body>
                     <Modal.Footer>
                         <Button className="closeBirdButton" variant="danger" onClick={handleClose}>
