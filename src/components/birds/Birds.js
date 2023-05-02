@@ -117,7 +117,7 @@ export const Birds = ({ searchTermState }) => {
         })
             .then(response => response.json())
             .then(() => {
-                handleClose()
+                handleClose(getMyBirds())
             })
 
     }

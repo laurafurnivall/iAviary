@@ -3,6 +3,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import "./Birds.css"
 import { BirdInfo } from './BirdInfo';
 import { BirdNotes } from './BirdNotes'
+import { BirdWeights } from './BirdWeights';
 
 export const BirdInfoPage = () => {
 
@@ -12,14 +13,14 @@ export const BirdInfoPage = () => {
     className="mb-3"
     fill
   >
-    <Tab  eventKey="info" title="Information">
+    <Tab eventKey="info" title="Information">
       <BirdInfo />
     </Tab>
     <Tab eventKey="notes" title="Notes">
       <BirdNotes />
     </Tab>
     <Tab eventKey="weights" title="Weights">
-      Weights and graph!
+      <BirdWeights />
     </Tab>
   </Tabs>
 

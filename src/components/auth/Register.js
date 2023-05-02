@@ -4,7 +4,7 @@ import "./Login.css"
 import { Link } from "react-router-dom"
 
 export const Register = (props) => {
-    const [user, setUser] = useState({
+    const [user, setUser] = useState({ //properties of user object
         email: "",
         name: "",
         aviaryName: "",
@@ -15,6 +15,7 @@ export const Register = (props) => {
     })
     let navigate = useNavigate()
 
+    //Function to register new user, POST to users in database, navigates to landing page
     const registerNewUser = () => {
         return fetch("http://localhost:8088/users", {
             method: "POST",
@@ -35,6 +36,8 @@ export const Register = (props) => {
             })
     }
 
+    //Function attached to the Register button, checks for duplicate emails, then 
+    //registers new user.
     const handleRegister = (e) => {
         e.preventDefault()
         return fetch(`http://localhost:8088/users?email=${user.email}`)
@@ -58,6 +61,7 @@ export const Register = (props) => {
     }
 
     return (
+        //Form for registration
         <main className="registerContainer">
             <form className="form--register" onSubmit={handleRegister}>
             <img className="logoRegister" alt="Logo Image for iAviary" src="../assets/iAviaryLogo.jpg"/>
