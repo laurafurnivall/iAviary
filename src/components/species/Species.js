@@ -44,7 +44,7 @@ export const Species = ({ searchTermState }) => {
     }
 
     const getAllSpecies = () => {
-        fetch(`http://localhost:8088/species`)
+        fetch(`http://localhost:8088/species?_sort=commonName&_order=asc`)
             .then(response => response.json())
             .then((speciesArray) => {
                 setSpecies(speciesArray)

@@ -9,21 +9,22 @@
 .welcomeAndUpdates {
     margin: 10px, 20px;
     padding: 10px 50px;
-    width: 50%;
+    width: 65%;
 }
 
 .FrontPageMessages {
     margin: 10px, 20px;
-    width: 50%;
+    width: 35%;
     padding: 10px 50px;
 }
 
 .landingFooter {
     width: 100%;
     position: absolute;
+    padding: 5px;
     bottom: 0;
-    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: rgb(255, 220, 206);
 }
