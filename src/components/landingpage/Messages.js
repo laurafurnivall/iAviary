@@ -19,6 +19,7 @@ export const Messages = () => {
     const localAviaryUser = localStorage.getItem("aviary_user")
     const aviaryUserObject = JSON.parse(localAviaryUser)
 
+    //modal control
     const [isShow, invokeModal] = useState(false)
     const handleClose = () => invokeModal(false)
     const handleOpen = () => invokeModal(true)
@@ -68,23 +69,23 @@ export const Messages = () => {
         })
             .then(response => response.json())
             .then(() => {
-                handleClose(getAllMessages())
+                handleClose(getAllMessages()) //close modal, refresh messages
             })
     }
 
 
     //return .map of messages, css
-    return <><h5>Messages</h5>
+    return <><h5 className='messageTitle'>Messages</h5>
         <section>
             {
                 messages.map((message) => {
-                    if (message.subject.adminType === false) {
+                    if (message.subject.adminType === false) { //check if message is NOT adminType
                     return <div className="singleMessage" key={message.id}>
                         <h6>{message.subject.subject} by {message.user.name}</h6>
                         <p>{message.message}</p>
                         <footer>Reply to: <Link className='button2'>{message.user.email}</Link>
                             {
-                                aviaryUserObject.id === message.userId || aviaryUserObject.admin ?
+                                aviaryUserObject.id === message.userId || aviaryUserObject.admin ? //only admin, or user who posted message can delete
                                     < Button className='button2 deleteMessage' onClick={() =>
                                         fetch(`http://localhost:8088/messages/${message.id}`, {
                                             method: "DELETE"
@@ -124,7 +125,7 @@ export const Messages = () => {
                         {
                             subjects.map(
                                 (subject) => {
-                                    if (subject.adminType === false)
+                                    if (subject.adminType === false) //check that subject options are not adminType
                                     return (
                                         <option key={subject.id} value={subject.id}>{subject.subject}</option>
                                     )

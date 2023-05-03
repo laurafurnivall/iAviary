@@ -7,7 +7,7 @@
 .bird {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     width: 15rem;
     height: 18rem;
     margin: 10px;
@@ -15,9 +15,10 @@
     border: 1px solid black;
     box-shadow: 2px 2px 5px #bc3a72;
     border-radius: 5px;
-    background-color: rgb(244, 241, 229);
+    background-color: rgb(253, 253, 240);
     font-family: 'Poppins', sans-serif;
 }
+
 
 .birdInfo {
     font-family: 'Poppins', sans-serif;
@@ -49,7 +50,8 @@
     height: 10rem;
     margin: 5px 10px 5px 5px;
     border: 0.5px solid black;
-    border-radius: 5px
+    border-radius: 5px;
+    align-self: center;
 }
 
 .editBirdForm {
@@ -62,7 +64,6 @@
 }
 
 .btn-group {
-    float: right;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -199,3 +200,5 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+

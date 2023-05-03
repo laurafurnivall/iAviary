@@ -3,15 +3,16 @@ import { Bird } from "./BirdCard"
 import "./Birds.css"
 import { Modal, Button } from 'react-bootstrap'
 
-export const Birds = ({ searchTermState }) => {
+export const Birds = ({ searchTermState }) => { //parameter allows birds to be searched
 
-    const [birds, setBirds] = useState([])
-    const [filteredBirds, setFilteredBirds] = useState([])
+    const [birds, setBirds] = useState([]) //set state
+    const [filteredBirds, setFilteredBirds] = useState([]) //filter birds by user
 
+    //user object to filter birds
     const localAviaryUser = localStorage.getItem("aviary_user")
     const aviaryUserObject = JSON.parse(localAviaryUser)
 
-
+    //fetch birds in variable, expand on species and gender
     const getAllBirds = () => {
         fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender`)
         .then(response => response.json())
@@ -20,14 +21,14 @@ export const Birds = ({ searchTermState }) => {
         })
     }
 
-    useEffect(
+    useEffect( //set state
         () =>{
             getAllBirds()
         },
         []
     )
 
-    const getMyBirds = () => {
+    const getMyBirds = () => { //filter birds by user
         fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender`)
         .then(response => response.json())
         .then((birdArray) => {
@@ -39,12 +40,12 @@ export const Birds = ({ searchTermState }) => {
         () =>{
         getMyBirds()
         },
-        [birds]
+        [birds] //watch for birds, then set filteredbirds state
     )
 
     useEffect(
         () =>{ 
-        if (searchTermState === "") {
+        if (searchTermState === "") { //if search field is empty, get users birds
             getMyBirds()
         } else {
         const searchedBirds = filteredBirds.filter(oneBird => {
@@ -55,10 +56,12 @@ export const Birds = ({ searchTermState }) => {
         [searchTermState]
     )
 
+    //control modal
     const [isShow, invokeModal] = useState(false)
     const handleClose = () => invokeModal(false)
     const handleOpen = () => invokeModal(true)
 
+    //states to help add bird through form below
     const [species, setSpecies] = useState([])
     const [genders, setGenders] = useState([])
     const [newBird, setNewBird] = useState({
@@ -75,7 +78,7 @@ export const Birds = ({ searchTermState }) => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/species`)
+            fetch(`http://localhost:8088/species`) //set species state
                 .then(response => response.json())
                 .then((species) => {
                     setSpecies(species)
@@ -86,7 +89,7 @@ export const Birds = ({ searchTermState }) => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/genders`)
+            fetch(`http://localhost:8088/genders`) //set genders state
                 .then(response => response.json())
                 .then((genders) => {
                     setGenders(genders)
@@ -95,6 +98,7 @@ export const Birds = ({ searchTermState }) => {
         []
     )
 
+    //function to add bird into api
     const handleSaveBirdClick = (event) => {
         event.preventDefault()
 
@@ -117,7 +121,7 @@ export const Birds = ({ searchTermState }) => {
         })
             .then(response => response.json())
             .then(() => {
-                handleClose(getMyBirds())
+                handleClose(getMyBirds()) //close modal and get all users birds
             })
 
     }

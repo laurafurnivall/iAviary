@@ -1,15 +1,16 @@
 .userProfile {
     width: 500px;
     flex-shrink: inherit;
-    margin: 20px;
+    margin: 10px 40px;
     padding: 15px 25px;
     border: 1px solid black;
     box-shadow: 2px 2px 5px #bc3a72;
     border-radius: 5px;
+    background-color: rgb(253, 253, 240);
 }
 
 .editProfileButton {
-    margin: 5px 20px;
+    margin: 5px 40px;
     background: linear-gradient(to bottom right, #bc3a72, #e48e79);
     border-radius: 5px !important;
     border: none !important;

@@ -13,7 +13,7 @@
     border: 1px solid black;
     box-shadow: 2px 2px 5px #bc3a72;
     border-radius: 5px;
-    background-color: rgb(244, 241, 229);
+    background-color: rgb(253, 253, 240);
     font-family: 'Poppins', sans-serif;
     font-size: 14px
 }
@@ -25,6 +25,9 @@
     margin: 5px 10px 5px 5px;
     border: 0.5px solid black;
     border-radius: 5px;
+}
+.species_info_body {
+    margin-top: 5px;
 }
 
 h2 {

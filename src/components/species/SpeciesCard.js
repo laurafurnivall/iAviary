@@ -22,7 +22,8 @@ export const SpeciesCard = ({ speciesObject, id, img, commonName, scientificName
         >Remove</button>
     }
 
-    return <>
+    return <> 
+    {/* species card with information */}
         <section className="singularSpecies">
             <Image className="species_img" fluid={false} src={img} alt="Image of Species" />
             <div className="species_info_body">
@@ -32,10 +33,10 @@ export const SpeciesCard = ({ speciesObject, id, img, commonName, scientificName
             </div>
             <div className="btn-group" role="group" aria-label="Basic example">
                 <> {
-                    aviaryUserObject.admin
+                    aviaryUserObject.admin //if user is admin, can delete or edit species
                         ? <> {removeSpecies()}
                             <button className="button2" onClick={() => navigate(`/species/${speciesObject.id}`)}>Edit</button></>
-                        : ""
+                        : "" //else no buttons show
                 }
                 </>
             </div>

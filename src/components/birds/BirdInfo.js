@@ -4,10 +4,10 @@ import "./Birds.css"
 
 export const BirdInfo = () => {
 
-    const { birdId } = useParams()
+    const { birdId } = useParams() //watch for birdId
     const [oneSpecies, setSpecies] = useState([])
     const [genders, setGenders] = useState([])
-    const [oneBird, updateBird] = useState({
+    const [oneBird, updateBird] = useState({ //add bird object
         id: birdId,
         speciesId: 0,
         img: "",
@@ -19,7 +19,7 @@ export const BirdInfo = () => {
         hatchDay: ""
     })
 
-    useEffect(
+    useEffect( //fetch bird object with species and gender, watching for param birdId
         () => {
             fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender&id=${birdId}`)
                 .then(response => response.json())
@@ -31,7 +31,7 @@ export const BirdInfo = () => {
         [birdId]
     )
 
-    useEffect(
+    useEffect( //set species state
         () => {
             fetch(`http://localhost:8088/species`)
                 .then(response => response.json())
@@ -42,7 +42,7 @@ export const BirdInfo = () => {
         []
     )
 
-    useEffect(
+    useEffect( //set gender state
         () => {
             fetch(`http://localhost:8088/genders`)
                 .then(response => response.json())
@@ -53,6 +53,7 @@ export const BirdInfo = () => {
         []
     )
 
+    //handle for editing bird info
     const handleSaveBirdClick = (event) => {
         event.preventDefault()
 

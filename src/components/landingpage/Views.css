@@ -7,26 +7,24 @@
 }
 
 .welcomeAndUpdates {
-    margin: 10px, 20px;
-    padding: 10px 50px;
+    margin: 0px, 20px;
+    padding: 15px 50px;
     width: 65%;
 }
 
 .FrontPageMessages {
-    margin: 10px, 20px;
     width: 35%;
     padding: 10px 50px;
     background-color: rgb(255, 220, 206);
-    border-radius: 5px;
+    border-left: 1px solid #404040;
 }
 
 .singleMessage {
-    border: 1px solid #404040;
-    border-radius: 5px;
+    border-bottom: 1px solid #404040;
+    width: 100%;
     padding: 5px 10px;
     margin: 5px;
     font-size: small;
-    box-shadow: 2px 2px 2px gray;
 }
 
 .deleteMessage {
@@ -44,5 +42,15 @@
 }
 
 .FrontPageAdminUpdates {
-    margin-top: 50px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #404040;
+}
+
+.FrontPage {
+   border-top: 1px solid #404040; 
+}
+
+.messageTitle {
+    font-weight: bold;
 }
