@@ -2,8 +2,6 @@
 import { useState, useEffect } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
-import Pagination from 'react-bootstrap/Pagination';
 
 //export function to display messages
 export const AdminUpdates = () => {
@@ -19,6 +17,7 @@ export const AdminUpdates = () => {
     const localAviaryUser = localStorage.getItem("aviary_user")
     const aviaryUserObject = JSON.parse(localAviaryUser)
 
+    //modal control
     const [isShow, invokeModal] = useState(false)
     const handleClose = () => invokeModal(false)
     const handleOpen = () => invokeModal(true)
@@ -45,7 +44,7 @@ export const AdminUpdates = () => {
 
         const messageToAddToAPI = {
             userId: aviaryUserObject.id,
-            subjectId: 5,
+            subjectId: 5, //auto set message as admin type
             message: newMessage.message
         }
 
@@ -56,21 +55,21 @@ export const AdminUpdates = () => {
         })
             .then(response => response.json())
             .then(() => {
-                handleClose(getAllMessages())
+                handleClose(getAllMessages()) //close modal and then getAllMessages again
             })
     }
 
 
     //return .map of messages, css
-    return <><h5>Updates</h5>
+    return <><h5 className='messageTitle'>Updates</h5>
         <section>
             {
                 messages.map((message) => {
-                    if (message.subject.adminType === true) {
+                    if (message.subject.adminType === true) { //check that message is an admin update
                     return <div className="singleMessage2" key={message.id}>
                         <p>{message.message}</p>
                             {
-                                aviaryUserObject.id === message.userId || aviaryUserObject.admin ?
+                                aviaryUserObject.id === message.userId || aviaryUserObject.admin ? //check for admin authentication
                                     < Button className='button2 deleteMessage2' onClick={() =>
                                         fetch(`http://localhost:8088/messages/${message.id}`, {
                                             method: "DELETE"
@@ -88,7 +87,7 @@ export const AdminUpdates = () => {
         </section >
         {
         aviaryUserObject.admin ?
-        <Button className='button' onClick={handleOpen}>Add Message</Button>
+        <Button className='button' onClick={handleOpen}>Add Message</Button> //check is user is admin
         : ""
         }
         <Modal show={isShow} onHide={handleClose} dialogClassName="modal-40w">

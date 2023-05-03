@@ -3,24 +3,34 @@ import "./Species.css"
 import { SpeciesCard } from "./SpeciesCard"
 import { Button, Modal } from "react-bootstrap"
 
-export const Species = ({ searchTermState }) => {
+export const Species = ({ searchTermState }) => { 
 
-    const [species, setSpecies] = useState([])
-    const [filteredSpecies, setFilteredSpecies] = useState([])
-    const [isShow, invokeModal] = useState(false)
+    const [species, setSpecies] = useState([]) //initial state of species
+    const [filteredSpecies, setFilteredSpecies] = useState([]) //changeable state of species, filtered by criteria
+    
+    const [isShow, invokeModal] = useState(false) //modal control
     const handleClose = () => invokeModal(false)
     const handleOpen = () => invokeModal(true)
 
     const localAviaryUser = localStorage.getItem("aviary_user")
     const aviaryUserObject = JSON.parse(localAviaryUser)
 
-    const [newSpecies, addNewSpecies] = useState({
+    const [newSpecies, addNewSpecies] = useState({ //add new species empty object
         commonName: "",
         scientificName: "",
         img: "",
         description: ""
     })
 
+    const getAllSpecies = () => { //fetch species, sort by commonName
+        fetch(`http://localhost:8088/species?_sort=commonName&_order=asc`)
+            .then(response => response.json())
+            .then((speciesArray) => {
+                setSpecies(speciesArray)
+            })
+    }
+
+    // function to handle the add of species 
     const handleAddSpeciesClick = (event) => {
         event.preventDefault()
 
@@ -37,20 +47,13 @@ export const Species = ({ searchTermState }) => {
         })
             .then(response => response.json())
             .then(() => {
-                handleClose()
+                handleClose(getAllSpecies())
 
             })
 
     }
 
-    const getAllSpecies = () => {
-        fetch(`http://localhost:8088/species?_sort=commonName&_order=asc`)
-            .then(response => response.json())
-            .then((speciesArray) => {
-                setSpecies(speciesArray)
-            })
-    }
-
+    
     useEffect(
         () => {
             setFilteredSpecies(species)
@@ -66,29 +69,29 @@ export const Species = ({ searchTermState }) => {
 
     useEffect(
         () => {
-            if (searchTermState === "") {
+            if (searchTermState === "") { //if search field is cleared, all species will show
                 getAllSpecies()
-            } else {
-            const searchedSpecies = filteredSpecies.filter(oneSpecies => {
+            } else { //else search by commonName
+            const searchedSpecies = filteredSpecies.filter(oneSpecies => { 
                 return oneSpecies.commonName.toLowerCase().startsWith(searchTermState.toLowerCase())
             })
             setFilteredSpecies(searchedSpecies)}
         },
-        [searchTermState]
+        [searchTermState] //watching for search field to be typed in
     )
 
 
     return <>
         {
-            aviaryUserObject.admin
+            aviaryUserObject.admin //if admin, can add species
                 ? <>
                     <Button className="button addbutton" variant="success" onClick={handleOpen}>Add Species</Button>
                 </>
-                : ""
+                : "" //if not admin, can only view species
         }
         <Button className="button allSpeciesButton" variant="success" onClick={getAllSpecies}>All Species</Button>
         <article className="species">
-            {
+            { //props establish for SpeciesCard
                 filteredSpecies.map((singularSpecies) => <SpeciesCard key={singularSpecies.id}
                     id={singularSpecies.id}
                     img={singularSpecies.img}
@@ -100,6 +103,7 @@ export const Species = ({ searchTermState }) => {
                 )
             }
         </article>
+        {/* modal for adding species */}
         <Modal show={isShow} onHide={handleClose} dialogClassName="modal-50w">
             <Modal.Header closeButton>
                 <Modal.Title>Add a New Species</Modal.Title>

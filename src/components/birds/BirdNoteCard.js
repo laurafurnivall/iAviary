@@ -1,5 +1,6 @@
 import "./BirdNote.css"
 
+//small function show notes adding about a specific bird, called in BirdNotes
 export const BirdNoteCard = ({ note, type, date }) => {
     return <><section className="birdNoteCard">
             <div><b>Date: </b> {date}</div>

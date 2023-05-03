@@ -4,9 +4,9 @@ import { useNavigate, useParams } from "react-router-dom"
 export const EditSpecies = () => {
     
     const navigate = useNavigate()
-    const {speciesId} = useParams()
+    const {speciesId} = useParams() //only viewing edit page based on one species
 
-    const [oneSpecies, updateOneSpecies] = useState({
+    const [oneSpecies, updateOneSpecies] = useState({ //object that will update species edits
         id: speciesId,
         img: "",
         commonName: "",
@@ -23,14 +23,14 @@ export const EditSpecies = () => {
             updateOneSpecies(singleSpecies)
         })
         },
-        [speciesId]
+        [speciesId] //watching for speciesId, will pinpoint that one object that will be edited
     )
 
     const handleSaveSpeciesClick = (event) => {
         event.preventDefault()
 
         return fetch(`http://localhost:8088/species/${oneSpecies.id}`, {
-            method: "PUT",
+            method: "PUT", //place new info into object
             headers:  {
                 "Content-type": "application/json"
             },
@@ -39,11 +39,12 @@ export const EditSpecies = () => {
         )
         .then(response => response.json())
         .then(() => {
-            navigate("/species")
+            navigate("/species") //navigate back to species page
         })
     }
 
-    return (<>
+    //form to edit selected species, will autopopulate selected species
+    return (<> 
         <h2 className="editSpeciesFormTitle">Edit Species Information</h2>
         <form className="editSpeciesForm">
             <fieldset>

@@ -3,10 +3,11 @@ import { Messages } from "./Messages"
 import "./Views.css"
 
 export const LandingPage = () => {
+
     return <article className="FrontPage">
         <section className="welcomeAndUpdates">
             <div className="FrontPageWelcome">
-                <h4>Welcome to iAviary</h4>
+                <h4 className='messageTitle'>Welcome to iAviary</h4>
                 <h5>Your Source for Eggspert Collection Management</h5>
                 <br></br>
                 <p>iAviary allows any aviculturist to keep track of their collection through a responsive database design. 

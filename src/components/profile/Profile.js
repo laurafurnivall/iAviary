@@ -4,7 +4,7 @@ import "./Profile.css"
 
 export const Profile = () => {
 
-    const [editProfile, updateProfile] = useState({
+    const [editProfile, updateProfile] = useState({ 
         name: "",
         aviaryName: "",
         aboutInfo: "",
@@ -16,11 +16,12 @@ export const Profile = () => {
     const localAviaryUser = localStorage.getItem("aviary_user")
     const aviaryUserObject = JSON.parse(localAviaryUser)
 
+    //modal control
     const [isShow, invokeModal] = useState(false)
     const handleClose = () => invokeModal(false)
     const handleOpen = () => invokeModal(true)
 
-
+    //fetch profile that is tied to the current user
     useEffect(
         () =>{
         fetch(`http://localhost:8088/users?id=${aviaryUserObject.id}`)
@@ -32,12 +33,13 @@ export const Profile = () => {
         },
         []
     )
-
+    
+    //save edits to profile
     const handleSaveProfile = (event) => {
         event.preventDefault()
 
         return fetch(`http://localhost:8088/users/${editProfile.id}`, {
-            method: "PUT",
+            method: "PUT", //put new infromation in
             headers: {
                 "Content-Type": "application/json"
             },
@@ -45,12 +47,13 @@ export const Profile = () => {
         })
         .then(response => response.json())
         .then(() => {
-            handleClose()
+            handleClose() //close modal
         })
     }
     
     
     return <>
+    {/* display intial profile */}
         <section className="userProfile">
             <h4 className="userName">{editProfile.name}</h4>
             <h5 className="userAviary">{editProfile.aviaryName}</h5>
@@ -59,7 +62,8 @@ export const Profile = () => {
             <div className="userFacts"><b>Address:</b> {editProfile.address}</div>
             <div className="userFacts"><b>Email:</b> {editProfile.email}</div>
         </section>
-
+        
+    {/* modal to edit profile, auto populates users information */}
         <Button className="editProfileButton" variant="success" onClick={handleOpen}>
          Edit Profile
         </Button>

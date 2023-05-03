@@ -1,5 +1,7 @@
 import "./Species.css"
 
+//search input field, with parameter of setterFunction, watches for change,
+// value is whatever the input is in the text field
 export const SpeciesSearch = ({ setterFunction }) => {
     return (
         <div>

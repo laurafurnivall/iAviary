@@ -6,10 +6,6 @@ import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/esm/Button";
 import { Modal } from "react-bootstrap";
 import { BirdGraph } from "./Graph";
-import { CategoryScale } from "chart.js";
-import Chart from "chart.js/auto";
-
-
 
 //Export Function BirdWeights
 export const BirdWeights = () => {
@@ -17,16 +13,18 @@ export const BirdWeights = () => {
     const { birdId } = useParams() //observe for specific birdId
     const [weights, setWeights] = useState([]) //initial state
     const [filteredWeights, setFilteredWeights] = useState([])
-    const [newWeight, setNewWeight] = useState({
+    const [newWeight, setNewWeight] = useState({ //object to add new weight
         birdId: birdId,
         weight: 0,
         date: ""
     })
 
+    //modal control
     const [isShow, invokeModal] = useState(false)
     const handleClose = () => invokeModal(false)
     const handleOpen = () => invokeModal(true)
 
+    //function of fetch call to get all weights, will be used later
     const getAllWeights = () => {
         fetch(`http://localhost:8088/weights`)
             .then(response => response.json())
@@ -45,7 +43,7 @@ export const BirdWeights = () => {
     //Filter weights down to param of birdId
 
     const getOneBirdsWeights = () => {
-        fetch(`http://localhost:8088/weights/?birdId=${birdId}`)
+        fetch(`http://localhost:8088/weights/?_sort=date&birdId=${birdId}`)
             .then(response => response.json())
             .then((singleBirdData) => {
                 setFilteredWeights(singleBirdData)
@@ -59,6 +57,7 @@ export const BirdWeights = () => {
         [weights]
     )
     
+    //function to handle adding weight into database
     const handleAddWeightClick = (event) => {
         event.preventDefault()
 
@@ -75,7 +74,7 @@ export const BirdWeights = () => {
         })
             .then(response => response.json())
             .then(() => {
-                fetch(`http://localhost:8088/weights/?birdId=${birdId}`)
+                fetch(`http://localhost:8088/weights/?_sort=date&birdId=${birdId}`)
                     .then(response => response.json())
                     .then((newWeight) => {
                         setFilteredWeights(newWeight)

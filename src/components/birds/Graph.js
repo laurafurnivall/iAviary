@@ -21,11 +21,11 @@ export const BirdGraph = () => {
     const [weights, setWeights] = useState([]) //initial state
     const [filteredWeights, setFilteredWeights] = useState([])
 
-    const label = filteredWeights.map((weight) => weight.date)
+    const label = filteredWeights.map((weight) => weight.date) //represent labels on xaxis
 
-    const weightData = filteredWeights.map((weight) => weight.weight)
+    const weightData = filteredWeights.map((weight) => weight.weight) //represent data on yaxis
 
-    const data = {
+    const data = { //will be called in line graph element in JSX
         labels: label,
         datasets: [
             {
@@ -41,7 +41,7 @@ export const BirdGraph = () => {
 
 
     const getAllWeights = () => {
-        fetch(`http://localhost:8088/weights`)
+        fetch(`http://localhost:8088/weights?_sort=date`)
             .then(response => response.json())
             .then((weightData) => {
                 setWeights(weightData) //establish request
@@ -58,7 +58,7 @@ export const BirdGraph = () => {
     //Filter weights down to param of birdId
 
     const getOneBirdsWeights = () => {
-        fetch(`http://localhost:8088/weights/?birdId=${birdId}`)
+        fetch(`http://localhost:8088/weights/?_sort=date&birdId=${birdId}`)
             .then(response => response.json())
             .then((singleBirdData) => {
                 setFilteredWeights(singleBirdData)
@@ -71,18 +71,6 @@ export const BirdGraph = () => {
         },
         [weights]
     )
-
-    // useEffect(
-    //     () =>{
-    //     fetch(`http://localhost:8088/weights/?birdId=${birdId}`)
-    //     .then(response => response.json())
-    //     .then((singleBirdData) => {
-    //         setChartData(singleBirdData)
-    //     })
-    //     },
-    //     [filteredWeights]
-    // )
-
 
     return <div className="chart-container"> 
         <Line

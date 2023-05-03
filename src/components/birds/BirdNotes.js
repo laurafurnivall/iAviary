@@ -7,9 +7,8 @@ import Form from 'react-bootstrap/Form';
 
 export const BirdNotes = () => {
 
-
     const { birdId } = useParams()
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState([]) 
     const [types, setTypes] = useState([])
     const [filteredNotes, setFilteredNotes] = useState([])
     const [newNote, addNewNote] = useState({
@@ -20,7 +19,7 @@ export const BirdNotes = () => {
     })
 
 
-    useEffect(
+    useEffect( //fetch notes
         () => {
             fetch(`http://localhost:8088/notes`)
                 .then(response => response.json())
@@ -31,7 +30,7 @@ export const BirdNotes = () => {
         []
     )
 
-    useEffect(
+    useEffect( //fetch types
         () => {
             fetch(`http://localhost:8088/types`)
                 .then(response => response.json())
@@ -42,7 +41,7 @@ export const BirdNotes = () => {
         []
     )
 
-    useEffect(
+    useEffect( //watch state for notes, filter to only single birds notes by param
         () => {
             fetch(`http://localhost:8088/notes/?_expand=bird&_expand=type&birdId=${birdId}`)
                 .then(response => response.json())
@@ -53,6 +52,7 @@ export const BirdNotes = () => {
         [notes]
     )
 
+    //function to handle adding new note  
     const handleSaveNoteClick = (event) => {
         event.preventDefault()
 
@@ -81,7 +81,7 @@ export const BirdNotes = () => {
     return <>
         <section className="birdnotesContainer">
             <div className="notesContent">
-                <h6>Notes</h6>
+                <h5 className="noteTitle">Notes</h5>
                 {
                     filteredNotes.map((note) => <BirdNoteCard key={note.id}
                         note={note.note}
@@ -91,7 +91,7 @@ export const BirdNotes = () => {
                 }
             </div>
             <div className="addNotesContent">
-                <h6>Add a New Note</h6>
+                <h5 className="noteTitle">Add a New Note</h5>
                 <Form className="addBirdNote">
                     <Form.Label>Date: </Form.Label>
                     <Form.Control className="addNoteFormControl"

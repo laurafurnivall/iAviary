@@ -4,6 +4,7 @@ export const Bird = ({ birdObject, id, img, name, species, getAllBirds }) => {
 
     const navigate = useNavigate()
 
+    //button to delete bird    
     const removeBird = () => {
         return <button className="button2" data-toggle="button" data-placement="bottom" title="Remove the bird from your collection?"
             onClick={() => {
@@ -20,7 +21,8 @@ export const Bird = ({ birdObject, id, img, name, species, getAllBirds }) => {
 
 
     return <>
-        <section className="bird">
+    {/* list basic bird info */}
+        <section className="bird"> 
             <img className="bird_img" src={img} alt="Image of Bird" />
             <div className="bird_info_body">
                 <h5 className="bird_name">{name}</h5>
@@ -29,6 +31,7 @@ export const Bird = ({ birdObject, id, img, name, species, getAllBirds }) => {
             <footer>
                 <div className="btn-group" role="group" aria-label="Basic example">
                     <>
+                    {/* buttons to navigate to bird info page */}
                         <button className="button2" onClick={() => navigate(`/birds/${birdObject.id}`)}>Info</button>
                         {removeBird()}
                     </>

@@ -1,5 +1,6 @@
 import "./Birds.css"
 
+//input field with for searching, parameter of setterFuncton
 export const BirdSearch = ({ setterFunctionTwo }) => {
     return (
         <div>
