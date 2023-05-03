@@ -16,15 +16,33 @@
     margin: 10px, 20px;
     width: 35%;
     padding: 10px 50px;
+    background-color: rgb(255, 220, 206);
+    border-radius: 5px;
 }
 
-.landingFooter {
-    width: 100%;
-    position: absolute;
-    padding: 5px;
-    bottom: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: rgb(255, 220, 206);
+.singleMessage {
+    border: 1px solid #404040;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: small;
+    box-shadow: 2px 2px 2px gray;
+}
+
+.deleteMessage {
+    float: right; 
+}
+
+.singleMessage2 {
+    border: 1px solid #404040;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: small;
+    box-shadow: 2px 2px 2px gray;
+    background-color: lightyellow;
+}
+
+.FrontPageAdminUpdates {
+    margin-top: 50px;
 }
