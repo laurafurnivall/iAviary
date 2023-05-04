@@ -23,6 +23,9 @@ Then iAviary is for you! This simple application is here to help you keep track 
 
 ![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Git](https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white) ![JSON Server](https://img.shields.io/badge/JSON_Server%20-%232a2e2a.svg?&style=for-the-badge&logo=JSON&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/VSCode%20-%23007ACC.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Boostrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) ![Chart Js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
 
+### Demo of Application
+
+...insert demo here!
 
 ### Getting Started
 
@@ -1161,21 +1164,76 @@ Once logged in, you will be directed to the Home Page which displays a welcome m
 
 • Profile - Offers the user the ability to view or edit their information. 
 
-### Demo of Application
-
-...insert demo here!
 
 ### To test functionality:
 
-#### As an Admin
+#### As an Admin:
+
+1. On home page, as an admin user, verify you can delete and add both update or regular messages.
+2. Click on Collection Management, verify that only those birds in your collection are present if you have any. 
+3. In search bar, type name of bird you are searching for and verify that it shows up. When search bar is cleared, all of your birds should repopulate. 
+4. Click on the button "Add a Bird or Egg". Verify that a modal pops up, fill in the necessary fields and click Add to Collection. Once a bird is added, it should show up in your collection. 
+5. Verify by clicking on remove, the bird is instantly removed from your collection.
+6. By clicking on the info button on one of your birds cards, you should be taken to a page specifically dedicated to that bird with tabs indicated information, notes, and weights.
+7. On the information tab, you should be able to view your birds inforamtion and edit it. 
+8. On the notes tabs, you should be able view notes about your bird and add notes. Verify that a new note populates once added. 
+9. On the weights tab, you should be able to view weights, add a new weight, and also vew the weight trends. Clicking on the weight trends button will allow a modal to pop open showing a line chart of weights overtime.
+10. From here, click on Species Database within the navbar. Verify that species cards populate on the page.
+11. Verify that you can search the database by common name and that when the search field is empty, the species repopulate. 
+12. As an admin user, verify that you can add a new species to the database, edit said species, or remove them. 
+13. From here, click on the Profile link within the navbar. Verify that your profile inforamtion shows.
+14. Verify you can edit your information.
+15. From here logout! Your iAviary experience is complete.
+ 
 
 #### As a User
 
+1. On home page, as a user verify you can add a message and that you can only delete a message you've created.
+2. Click on Collection Management, verify that only those birds in your collection are present if you have any. 
+3. In search bar, type name of bird you are searching for and verify that it shows up. When search bar is cleared, all of your birds should repopulate. 
+4. Click on the button "Add a Bird or Egg". Verify that a modal pops up, fill in the necessary fields and click Add to Collection. Once a bird is added, it should show up in your collection. 
+5. Verify by clicking on remove, the bird is instantly removed from your collection.
+6. By clicking on the info button on one of your birds cards, you should be taken to a page specifically dedicated to that bird with tabs indicated information, notes, and weights.
+7. On the information tab, you should be able to view your birds inforamtion and edit it. 
+8. On the notes tabs, you should be able view notes about your bird and add notes. Verify that a new note populates once added. 
+9. On the weights tab, you should be able to view weights, add a new weight, and also vew the weight trends. Clicking on the weight trends button will allow a modal to pop open showing a line chart of weights overtime.
+10. From here, click on Species Database within the navbar. Verify that species cards populate on the page.
+11. As a user, verify that you can search the database by common name and that when the search field is empty, the species repopulate.
+12. From here, click on the Profile link within the navbar. Verify that your profile inforamtion shows.
+13. Verify you can edit your information.
+14. From here logout! Your iAviary experience is complete. 
+
 ### Difficulties and Challenges
+
+1. Becoming competent with React and fully comprehending the skills and vocabulary that we've been learning. 
+2. Teaching myself Bootstrap and Chart.js
+3. Attempting to do it all, when I don't know it all yet. 
 
 ### Lessons Learned
 
+1. Ask for help, that's what your instructors and teammates are there for. 
+2. Challenge yourself, but know your limitations. 
+3. If you're reusing code... turn it into it's own component. I wish I had known this sooner and I would have refactored a lot of it. 
+
 ### How this Application was Developed
+
+1. Created a database.
+2. Established the app and set up the basic framework (npm install)
+3. Set up the login and register page, which also included the views components.
+4. Created the navbar.
+4. Once the stage was set for the application, I broke it down into areas of focus. I startred with Collection Management and got my bird cards to list by user, added a form for adding and editing birds, and the capability to remove them as well.
+5. I moved onto the species database afterwards, and got the species to list with their information. I set it so only admin could create, edit or delete species. 
+6. Finally, I added a profile element that would allow the user to view and edit their profile. 
+7. Reached MVP, started working on CSS.
+8. Worked on stretch goals: added search bars to both the collection management and species database page. Turned some forms into Modals utilizing Boostrap. Changed the bird edit button into an info button and created a whole new view where the user can seen the bird information, edit the bird information, add notes and weights. And finally... taught myself Chart.js and created a line graph out of the bird weights. 
+9. Spruced up the home page. 
+10. Goals for future adjustments: 
+• User database, with admin control to remove users.
+• Add more species.
+• Users can edit their messages.
+• Search messages by subject.
+• Learn how to paginate with bootstrap, apply that to the messages component.
+• Adjust the species info to more realistic and useful information, perhaps add a link out to learn more. 
 
 ### Planning
 
