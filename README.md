@@ -1181,11 +1181,11 @@ Once logged in, you will be directed to the Home Page which displays a welcome m
 
 #### Wireframe
 
-![iAviaryWireFrame](https://user-images.githubusercontent.com/122993299/236241388-be396dfe-8848-4407-b49e-7c4a968f645a.jpg)
+![iAviary (1)](https://user-images.githubusercontent.com/122993299/236244645-de9128dd-9a3d-4017-a90a-6145e892ec26.jpg)
 
 #### ERD
 
-[iAviaryERD.pdf](https://github.com/laurafurnivall/iAviary/files/11398633/iAviaryERD.pdf)
+![iAviaryERD](https://user-images.githubusercontent.com/122993299/236244715-504fbec3-cc75-45e2-9561-daa05db32d2d.jpg)
 
 #### Proposal
 
