@@ -1227,12 +1227,12 @@ Once logged in, you will be directed to the Home Page which displays a welcome m
 7. Reached MVP, started working on CSS.
 8. Worked on stretch goals: added search bars to both the collection management and species database page. Turned some forms into Modals utilizing Boostrap. Changed the bird edit button into an info button and created a whole new view where the user can seen the bird information, edit the bird information, add notes and weights. And finally... taught myself Chart.js and created a line graph out of the bird weights. 
 9. Spruced up the home page. 
-10. Goals for future adjustments: 
-• User database, with admin control to remove users.
-• Add more species.
-• Users can edit their messages.
-• Search messages by subject.
-• Learn how to paginate with bootstrap, apply that to the messages component.
+10. Goals for future adjustments:<br> 
+• User database, with admin control to remove users. <br>
+• Add more species. <br>
+• Users can edit their messages. <br>
+• Search messages by subject.<br>
+• Learn how to paginate with bootstrap, apply that to the messages component.<br>
 • Adjust the species info to more realistic and useful information, perhaps add a link out to learn more. 
 
 ### Planning
