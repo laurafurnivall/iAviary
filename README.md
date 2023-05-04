@@ -1140,8 +1140,6 @@ You can copy and paste sample data to get an idea of how this app can be used
 </p>
 </details><br>
 
-
-
 ### Entering the Site
 
 Once the site launches, register by clicking on the "Not a member yet?" link.
@@ -1157,11 +1155,11 @@ Demo User Credentials<br>
 
 Once logged in, you will be directed to the Home Page which displays a welcome message, admin updates, and user messages. From this page you can navigate to Collection Management, Species Database, Profile or Logout. 
 
-&emsp; Collection Management - Displays birds in that users collection. It offers the ability on that page to search, add, or remove birds in your collection. By clicking the info button a bird card you will be directed to that birds page which will display tabs representing their information, notes pertaining to that bird, and weights pertaining to that bird. 
+• Collection Management - Displays birds in that users collection. It offers the ability on that page to search, add, or remove birds in your collection. By clicking the info button a bird card you will be directed to that birds page which will display tabs representing their information, notes pertaining to that bird, and weights pertaining to that bird. 
 
-&emsp; Species Database - Displays species within the database. Users can search for specific species if needed. 
+• Species Database - Displays species within the database. Users can search for specific species if needed. 
 
-&emsp; Profile - Offers the user the ability to view or edit their information. 
+• Profile - Offers the user the ability to view or edit their information. 
 
 ### Demo of Application
 
