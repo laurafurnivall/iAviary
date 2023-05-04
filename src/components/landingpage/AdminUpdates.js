@@ -61,7 +61,7 @@ export const AdminUpdates = () => {
 
 
     //return .map of messages, css
-    return <><h5 className='messageTitle'>Updates</h5>
+    return <><h5 className='messageTitle2'>Updates</h5>
         <section>
             {
                 messages.map((message) => {
