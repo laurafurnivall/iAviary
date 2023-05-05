@@ -89,7 +89,7 @@ export const Species = ({ searchTermState }) => {
                 </>
                 : "" //if not admin, can only view species
         }
-        <Button className="button allSpeciesButton" variant="success" onClick={getAllSpecies}>All Species</Button>
+        {/* <Button className="button allSpeciesButton" variant="success" onClick={getAllSpecies}>All Species</Button> */}
         <article className="species">
             { //props establish for SpeciesCard
                 filteredSpecies.map((singularSpecies) => <SpeciesCard key={singularSpecies.id}

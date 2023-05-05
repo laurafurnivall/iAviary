@@ -135,7 +135,7 @@ export const BirdInfo = () => {
                                 updateBird(copy)
                             }
                         }>
-                        <option key={0}>Choose a species...</option>
+                        <option key={0}>{oneBird?.species?.commonName}</option>
                         {
                             oneSpecies.map(
                                 (birdSpecies) => {
