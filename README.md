@@ -25,7 +25,7 @@ Then iAviary is for you! This simple application is here to help you keep track 
 
 ### Demo of Application
 
-...insert demo here!
+Coming soon!
 
 ### Getting Started
 
