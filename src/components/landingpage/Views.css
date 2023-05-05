@@ -48,7 +48,8 @@
 
 .messageTitle {
     font-weight: bold;
-    border-bottom: 1px solid #404040
+    border-bottom: 1px solid #404040;
+    padding-bottom: 5px;
 }
 
 .messageTitle2 {

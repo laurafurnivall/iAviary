@@ -81,7 +81,7 @@ export const Messages = () => {
                 messages.map((message) => {
                     if (message.subject.adminType === false) { //check if message is NOT adminType
                     return <div className="singleMessage" key={message.id}>
-                        <h6>{message.subject.subject} by {message.user.name}</h6>
+                        <h6><b>{message.subject.subject}</b> by {message.user.name}</h6>
                         <p>{message.message}</p>
                         <footer>Reply to: <Link className='button2'>{message.user.email}</Link>
                             {

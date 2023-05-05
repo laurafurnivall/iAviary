@@ -18,14 +18,17 @@ export const BirdNotes = () => {
         date: ""
     })
 
-
-    useEffect( //fetch notes
-        () => {
-            fetch(`http://localhost:8088/notes`)
+    const getAllNotes = () => {
+        fetch(`http://localhost:8088/notes`)
                 .then(response => response.json())
                 .then((noteData) => {
                     setNotes(noteData)
                 })
+    }
+
+    useEffect( //fetch notes
+        () => {
+            getAllNotes()
         },
         []
     )
@@ -84,9 +87,11 @@ export const BirdNotes = () => {
                 <h5 className="noteTitle">Notes</h5>
                 {
                     filteredNotes.map((note) => <BirdNoteCard key={note.id}
+                        id={note.id}
                         note={note.note}
                         date={note.date}
-                        type={note?.type?.type} />
+                        type={note?.type?.type}
+                        getAllNotes={getAllNotes} />
                     )
                 }
             </div>

@@ -128,7 +128,7 @@ export const Birds = ({ searchTermState }) => { //parameter allows birds to be s
 
     return <>
     <Button className="button addbutton" onClick={handleOpen}>Add Bird or Egg</Button>
-    <Button className="button addbutton" onClick={getAllBirds}>Get All Birds</Button>
+    {/* <Button className="button addbutton" onClick={getAllBirds}>Get All Birds</Button> */}
     <article className="birds">
         {
             filteredBirds.map((bird) => <Bird key={bird.id}
