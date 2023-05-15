@@ -4,6 +4,7 @@ import { Profile } from "../profile/Profile"
 import { BirdsContainer } from "../birds/BirdContainer"
 import { BirdInfoPage } from "../birds/BirdInfoPage"
 import { LandingPage } from "../landingpage/LandingPage"
+import { EditBird } from "../birds/EditBird"
 
 
 export const UserViews = () => {
@@ -17,6 +18,7 @@ export const UserViews = () => {
 				<Route path="/" element={<LandingPage />} />
 				<Route path="birds" element={<BirdsContainer />} />
 				<Route path="birds/:birdId" element={<BirdInfoPage />} />
+				<Route path="birds/edit/:birdId" element={<EditBird/>} />
 				<Route path="species" element={<SpeciesContainer />} />
 				<Route path="profile" element={<Profile />} />
 			</Route>
