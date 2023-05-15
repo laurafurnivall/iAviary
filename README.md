@@ -25,7 +25,7 @@ Then iAviary is for you! This simple application is here to help you keep track 
 
 ### Demo of Application
 
-Click <a href="[https://www.loom.com/share/844fc1af71454794905a3ffb41739265](https://www.loom.com/share/4b974a91d0fe447cabf5d8f8fdc89c41)">here</a> for a Demo
+Click <a href="https://www.loom.com/share/844fc1af71454794905a3ffb41739265">here</a> for a Demo
 
 ### Getting Started
 
