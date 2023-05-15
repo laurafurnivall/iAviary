@@ -57,7 +57,7 @@ export const BirdWeights = () => {
         [weights]
     )
     
-    //function to handle adding weight into database
+    //function to handle adding weight into databasegit branch
     const handleAddWeightClick = (event) => {
         event.preventDefault()
 
