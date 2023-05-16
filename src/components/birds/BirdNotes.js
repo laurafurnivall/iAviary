@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 export const BirdNotes = () => {
 
     const { birdId } = useParams()
-    const [notes, setNotes] = useState([]) 
+    const [notes, setNotes] = useState([])
     const [types, setTypes] = useState([])
     const [filteredNotes, setFilteredNotes] = useState([])
     const [newNote, addNewNote] = useState({
@@ -20,10 +20,10 @@ export const BirdNotes = () => {
 
     const getAllNotes = () => {
         fetch(`http://localhost:8088/notes`)
-                .then(response => response.json())
-                .then((noteData) => {
-                    setNotes(noteData)
-                })
+            .then(response => response.json())
+            .then((noteData) => {
+                setNotes(noteData)
+            })
     }
 
     useEffect( //fetch notes
@@ -60,25 +60,25 @@ export const BirdNotes = () => {
         event.preventDefault()
 
         const noteToSaveToAPI = {
-        birdId: birdId,
-        typeId: newNote.typeId,
-        note: newNote.note,
-        date: newNote.date
+            birdId: birdId,
+            typeId: newNote.typeId,
+            note: newNote.note,
+            date: newNote.date
         }
 
         return fetch(`http://localhost:8088/notes/`, {
             method: "POST",
-            headers: { "Content-type": "application/json"},
+            headers: { "Content-type": "application/json" },
             body: JSON.stringify(noteToSaveToAPI)
         })
-        .then(response => response.json())
-        .then(() => {
-            fetch(`http://localhost:8088/notes/?birdId=${birdId}`)
             .then(response => response.json())
-            .then((newNoteData) => {
-                setFilteredNotes(newNoteData)
+            .then(() => {
+                fetch(`http://localhost:8088/notes/?_expand=type&birdId=${birdId}`)
+                    .then(response => response.json())
+                    .then((newNoteData) => {
+                        setFilteredNotes(newNoteData)
+                    })
             })
-        })
     }
 
     return <>

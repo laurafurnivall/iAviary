@@ -15,14 +15,14 @@ export const Birds = ({ searchTermState }) => { //parameter allows birds to be s
     //fetch birds in variable, expand on species and gender
     const getAllBirds = () => {
         fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender`)
-        .then(response => response.json())
-        .then((birdArray) => {
-            setBirds(birdArray)
-        })
+            .then(response => response.json())
+            .then((birdArray) => {
+                setBirds(birdArray)
+            })
     }
 
     useEffect( //set state
-        () =>{
+        () => {
             getAllBirds()
         },
         []
@@ -30,28 +30,29 @@ export const Birds = ({ searchTermState }) => { //parameter allows birds to be s
 
     const getMyBirds = () => { //filter birds by user
         fetch(`http://localhost:8088/birds/?_expand=species&_expand=gender`)
-        .then(response => response.json())
-        .then((birdArray) => {
-            const myBirds = birdArray.filter(bird => bird.userId === aviaryUserObject.id)
-            setFilteredBirds(myBirds)
-        })
+            .then(response => response.json())
+            .then((birdArray) => {
+                const myBirds = birdArray.filter(bird => bird.userId === aviaryUserObject.id)
+                setFilteredBirds(myBirds)
+            })
     }
     useEffect(
-        () =>{
-        getMyBirds()
+        () => {
+            getMyBirds()
         },
         [birds] //watch for birds, then set filteredbirds state
     )
 
     useEffect(
-        () =>{ 
-        if (searchTermState === "") { //if search field is empty, get users birds
-            getMyBirds()
-        } else {
-        const searchedBirds = filteredBirds.filter(oneBird => {
-            return oneBird.name.toLowerCase().startsWith(searchTermState.toLowerCase()) 
-        })
-        setFilteredBirds(searchedBirds)}
+        () => {
+            if (searchTermState === "") { //if search field is empty, get users birds
+                getMyBirds()
+            } else {
+                const searchedBirds = filteredBirds.filter(oneBird => {
+                    return oneBird.name.toLowerCase().startsWith(searchTermState.toLowerCase())
+                })
+                setFilteredBirds(searchedBirds)
+            }
         },
         [searchTermState]
     )
@@ -78,7 +79,7 @@ export const Birds = ({ searchTermState }) => { //parameter allows birds to be s
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/species`) //set species state
+            fetch(`http://localhost:8088/species/?_order=asc`) //set species state
                 .then(response => response.json())
                 .then((species) => {
                     setSpecies(species)
@@ -127,174 +128,174 @@ export const Birds = ({ searchTermState }) => { //parameter allows birds to be s
     }
 
     return <>
-    <Button className="button addbutton" onClick={handleOpen}>Add Bird or Egg</Button>
-    {/* <Button className="button addbutton" onClick={getAllBirds}>Get All Birds</Button> */}
-    <article className="birds">
-        {
-            filteredBirds.map((bird) => <Bird key={bird.id}
-            id={bird.id}
-            img={bird.img}
-            name={bird.name}
-            species={bird?.species?.commonName}
-            sex={bird?.gender?.gender}
-            identifiers={bird.identifiers}
-            getAllBirds={getAllBirds}
-            birdObject={bird}
-            hatchDay={bird.hatchDay} />
-            )
-        }
-    </article>
+        <Button className="button addbutton" onClick={handleOpen}>Add Bird or Egg</Button>
+        {/* <Button className="button addbutton" onClick={getAllBirds}>Get All Birds</Button> */}
+        <article className="birds">
+            {
+                filteredBirds.map((bird) => <Bird key={bird.id}
+                    id={bird.id}
+                    img={bird.img}
+                    name={bird.name}
+                    species={bird?.species?.commonName}
+                    sex={bird?.gender?.gender}
+                    identifiers={bird.identifiers}
+                    getAllBirds={getAllBirds}
+                    birdObject={bird}
+                    hatchDay={bird.hatchDay} />
+                )
+            }
+        </article>
 
-    <Modal show={isShow} onHide={handleClose} dialogClassName="modal-40w">
-          <Modal.Header closeButton>
-            <Modal.Title>Add to your Aviary</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-          <form className="addBirdForm">
-            <fieldset>
-                <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdName">Name:</label>
-                    <input
-                        type="text"
-                        className="birdFormControl"
-                        placeholder="Name of new bird"
-                        value={newBird.name}
-                        onChange={
-                            (event) => {
-                                const copy = { ...newBird }
-                                copy.name = event.target.value
-                                setNewBird(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdImg">Image:</label>
-                    <input
-                        type="text"
-                        className="birdFormControl"
-                        value={newBird.img}
-                        placeholder="Image URL"
-                        onChange={
-                            (event) => {
-                                const copy = { ...newBird }
-                                copy.img = event.target.value
-                                setNewBird(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdSpecies">Species:</label>
-                    <select
-                    className="birdFormControl"
-                        onChange={
-                            (event) => {
-                                const copy = { ...newBird }
-                                copy.speciesId = event.target.value
-                                setNewBird(copy)
-                            }
-                        }>
-                        <option key={0}>Choose a Species</option>
-                        {
-                            species.map(
-                                (birdSpecies) => {
-                                    return (
-                                        <option key={birdSpecies.id} value={birdSpecies.id}>{birdSpecies.commonName}</option>
+        <Modal show={isShow} onHide={handleClose} dialogClassName="modal-40w">
+            <Modal.Header closeButton>
+                <Modal.Title>Add to your Aviary</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <form className="addBirdForm">
+                    <fieldset>
+                        <div className="birdFormGroup">
+                            <label className="ModalFormLabels" htmlFor="birdName">Name:</label>
+                            <input
+                                type="text"
+                                className="birdFormControl"
+                                placeholder="Name of new bird"
+                                value={newBird.name}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...newBird }
+                                        copy.name = event.target.value
+                                        setNewBird(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="birdFormGroup">
+                            <label className="ModalFormLabels" htmlFor="birdImg">Image:</label>
+                            <input
+                                type="text"
+                                className="birdFormControl"
+                                value={newBird.img}
+                                placeholder="Image URL"
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...newBird }
+                                        copy.img = event.target.value
+                                        setNewBird(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="birdFormGroup">
+                            <label className="ModalFormLabels" htmlFor="birdSpecies">Species:</label>
+                            <select
+                                className="birdFormControl"
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...newBird }
+                                        copy.speciesId = event.target.value
+                                        setNewBird(copy)
+                                    }
+                                }>
+                                <option key={0}>Choose a Species</option>
+                                {
+                                    species.map(
+                                        (birdSpecies) => {
+                                            return (
+                                                <option key={birdSpecies.id} value={birdSpecies.id}>{birdSpecies.commonName}</option>
+                                            )
+                                        }
                                     )
                                 }
-                            )
-                        }
-                    </select>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdGender">Gender:</label>
-                    {
-                        genders.map(
-                            (birdGender) => {
-                                return <div className="addbirdRadio" key={birdGender.id + "gender"}>
-                                    <input
-                                        type="radio"
-                                        name="birdGenderButtons"
-                                        key={birdGender.gender + birdGender.id}
-                                        value={birdGender.id}
-                                        onChange={
-                                            (event) => {
-                                                const copy = { ...newBird }
-                                                copy.genderId = parseInt(event.target.value)
-                                                setNewBird(copy)
-                                            }
-                                        } />
-                                    <label htmlFor="genderName" key={"gender--" + birdGender.id}>{birdGender.gender}</label>
-                                </div>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="birdFormGroup">
+                            <label className="ModalFormLabels" htmlFor="birdGender">Gender:</label>
+                            {
+                                genders.map(
+                                    (birdGender) => {
+                                        return <div className="addbirdRadio" key={birdGender.id + "gender"}>
+                                            <input
+                                                type="radio"
+                                                name="birdGenderButtons"
+                                                key={birdGender.gender + birdGender.id}
+                                                value={birdGender.id}
+                                                onChange={
+                                                    (event) => {
+                                                        const copy = { ...newBird }
+                                                        copy.genderId = parseInt(event.target.value)
+                                                        setNewBird(copy)
+                                                    }
+                                                } />
+                                            <label htmlFor="genderName" key={"gender--" + birdGender.id}>{birdGender.gender}</label>
+                                        </div>
+                                    }
+                                )
                             }
-                        )
-                    }
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdIdentifiers">Identifiers:</label>
-                    <input
-                        type="text"
-                        className="birdFormControl"
-                        placeholder="Bands or unique identifiers"
-                        value={newBird.identifiers}
-                        onChange={
-                            (event) => {
-                                const copy = { ...newBird }
-                                copy.identifiers = event.target.value
-                                setNewBird(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdEgg">Is it an Egg?</label>
-                    <input 
-                    className="eggcheck"
-                    type="checkbox"
-                        value={newBird.isEgg}
-                        onChange={
-                            (event) => {
-                                const copy = { ...newBird }
-                                copy.isEgg = event.target.checked
-                                setNewBird(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="birdFormGroup">
-                    <label className="ModalFormLabels" htmlFor="birdGender">Hatch Day:</label>
-                    <input 
-                    className="birdFormControl"
-                    type="date"
-                        value={newBird.hatchDay}
-                        onChange={
-                            (event) => {
-                                const copy = { ...newBird }
-                                copy.hatchDay = event.target.value
-                                setNewBird(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button className="closeBirdButton" variant="danger" onClick={handleClose}>
-              Close
-            </Button>
-            <Button className="button" variant="dark" onClick={handleSaveBirdClick}>
-              Add to Collection
-            </Button>
-          </Modal.Footer>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="birdFormGroup">
+                            <label className="ModalFormLabels" htmlFor="birdIdentifiers">Identifiers:</label>
+                            <input
+                                type="text"
+                                className="birdFormControl"
+                                placeholder="Bands or unique identifiers"
+                                value={newBird.identifiers}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...newBird }
+                                        copy.identifiers = event.target.value
+                                        setNewBird(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="birdFormGroup">
+                            <label className="ModalFormLabels" htmlFor="birdEgg">Is it an Egg?</label>
+                            <input
+                                className="eggcheck"
+                                type="checkbox"
+                                value={newBird.isEgg}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...newBird }
+                                        copy.isEgg = event.target.checked
+                                        setNewBird(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="birdFormGroup">
+                            <label className="ModalFormLabels" htmlFor="birdGender">Hatch Day:</label>
+                            <input
+                                className="birdFormControl"
+                                type="date"
+                                value={newBird.hatchDay}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...newBird }
+                                        copy.hatchDay = event.target.value
+                                        setNewBird(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                </form>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button className="closeBirdButton" variant="danger" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button className="button" variant="dark" onClick={handleSaveBirdClick}>
+                    Add to Collection
+                </Button>
+            </Modal.Footer>
         </Modal>
     </>
 }
